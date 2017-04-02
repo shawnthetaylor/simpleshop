@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Inventory from '../Inventory'; // TODO: <li> with simple +/- form (using dq)
+import InventoryItem from '../InventoryItem';
 
 const propTypes = {
   inventory: PropTypes.arrayOf(PropTypes.shape({
@@ -20,9 +20,9 @@ class InventoryList extends Component {
   generateInventoryList() {
     return this.props.inventory.map((item, i) => {
       return (
-        <Inventory { ...item }
-                   key={ i }
-                   onInventoryClick={ dq => this.props.onInventoryClick(item, dq) } />
+        <InventoryItem { ...item }
+                       key={ i }
+                       onInventoryClick={ dq => this.props.onInventoryClick(item, dq) } />
       );
     });
   }

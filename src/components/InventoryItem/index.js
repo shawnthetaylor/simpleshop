@@ -7,7 +7,7 @@ const propTypes = {
   onInventoryClick: PropTypes.func.isRequired
 };
 
-class Inventory extends Component {
+class InventoryItem extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -48,6 +48,6 @@ class Inventory extends Component {
   }
 }
 
-Inventory.propTypes = propTypes;
+InventoryItem.propTypes = propTypes;
 
-export default Inventory;
+export default InventoryItem;
