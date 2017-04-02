@@ -10,9 +10,9 @@ class Nav extends Component {
     super(props, context);
 
     this.navItems = [
-      { icon: '', route: '/', alt: 'add' },
-      { icon: '', route: 'inventory', alt: 'list' },
-      { icon: '', route: 'cart', alt: 'cart' }
+      { className: 'fa fa-plus', route: '/' },
+      { className: 'fa fa-list', route: 'inventory' },
+      { className: 'fa fa-shopping-cart', route: 'cart' }
     ];
 
     this.state = { navOpen: false };
@@ -24,9 +24,9 @@ class Nav extends Component {
   generateNavItems() {
     return this.navItems.map((item, i) => {
       return (
-        <li key={ i } className={ cx('item') }>
-          <Link to={ item.route }>
-            <img src={ item.icon } alt={ item.alt } />
+        <li key={ i } className={ cx('box', 'nav-item') }>
+          <Link to={ item.route } className={ cx('nav-item-link') }>
+            <i className={ item.className } aria-hidden='true'></i>
           </Link>
         </li>
       );
@@ -38,7 +38,7 @@ class Nav extends Component {
   }
 
   render() {
-    const mainNavItemClasses = cx('item', 'main', {
+    const mainNavItemClasses = cx('main', {
       open: this.state.navOpen
     });
 
