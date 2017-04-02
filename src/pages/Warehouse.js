@@ -1,8 +1,9 @@
 import React from 'react';
+import AddInventory from '../containers/AddInventory';
 
 const Warehouse = () => (
   <section>
-    Warehouse page!
+    <AddInventory />
   </section>
 );
 
