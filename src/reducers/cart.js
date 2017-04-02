@@ -23,6 +23,10 @@ const cart = (state = initialState.cart, action) => {
       ];
     }
 
+    case Actions.DELETE_CART: {
+      return state.filter(i => i.name !== action.name);
+    }
+
     default:
       return state;
   }
