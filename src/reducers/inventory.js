@@ -11,8 +11,19 @@ const inventory = (state = initialState.inventory, action) => {
       ];
     }
 
+    case Actions.UPDATE_INVENTORY: {
+      const { name, dq } = action;
+      return state.map((item, i) => {
+        if (item.name === name) {
+          return Object.assign({}, item, {
+            quantity: item.quantity - dq
+          });
+        }
+      });
+    }
+
     default:
-      return state
+      return state;
   }
 }
 
