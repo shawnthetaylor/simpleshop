@@ -3,8 +3,14 @@
 }
 
 html, body {
+  background: #fdecc3; /* TODO: store as var */
+  font-size: 16px;
   margin: 0;
   padding: 0;
   height: 100vh;
   width: 100vw;
+}
+
+a {
+  text-decoration: none;
 }
