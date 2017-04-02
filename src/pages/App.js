@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../components/Nav';
+import Header from '../components/Header';
 
 class App extends Component {
   constructor(props, context) {
@@ -10,6 +11,7 @@ class App extends Component {
     return (
       <section>
         <Nav />
+        <Header />
         { this.props.children }
       </section>
     );
