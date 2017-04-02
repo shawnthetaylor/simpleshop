@@ -18,8 +18,8 @@ class AddInventory extends Component {
 
     const item = {
       name: this.name.value,
-      price: this.price.value,
-      quantity: this.quantity.value
+      price: parseFloat(this.price.value),
+      quantity: parseInt(this.quantity.value, 10)
     };
     this.props.dispatch(addInventory(item));
 
