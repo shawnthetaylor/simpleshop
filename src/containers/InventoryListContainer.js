@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import InventoryList from '../components/InventoryList';
 import Filters from '../constants/filters';
-import updateInventory from '../actions/updateInventory';
+import deleteInventory from '../actions/deleteInventory';
 import updateCart from '../actions/updateCart';
 
 const getVisibleInventory = (inventory, filter) => {
@@ -37,7 +37,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onInventoryClick: (item, dq)=> {
-      dispatch(updateInventory(item.name, dq));
+      dispatch(deleteInventory(item.name, dq));
       dispatch(updateCart(item, dq));
     }
   };

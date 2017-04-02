@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import addInventory from '../actions/addInventory';
+import createInventory from '../actions/createInventory';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired
@@ -21,7 +21,7 @@ class AddInventory extends Component {
       price: parseFloat(this.price.value),
       quantity: parseInt(this.quantity.value, 10)
     };
-    this.props.dispatch(addInventory(item));
+    this.props.dispatch(createInventory(item));
 
     // Reset form values
     this.name.value = '';

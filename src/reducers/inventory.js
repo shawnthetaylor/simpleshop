@@ -3,7 +3,7 @@ import initialState from '../constants/initialState';
 
 const inventory = (state = initialState.inventory, action) => {
   switch(action.type) {
-    case Actions.ADD_INVENTORY: {
+    case Actions.CREATE_INVENTORY: {
       const { name, price, quantity } = action;
       return [
         ...state,
@@ -11,7 +11,18 @@ const inventory = (state = initialState.inventory, action) => {
       ];
     }
 
-    case Actions.UPDATE_INVENTORY: {
+    case Actions.ADD_INVENTORY: {
+      const { name, dq } = action;
+      return state.map((item, i) => {
+        if (item.name === name) {
+          return Object.assign({}, item, {
+            quantity: item.quantity + dq
+          });
+        }
+      });
+    }
+
+    case Actions.DELETE_INVENTORY: {
       const { name, dq } = action;
       return state.map((item, i) => {
         if (item.name === name) {

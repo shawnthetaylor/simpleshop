@@ -1,11 +1,10 @@
 import Actions from '../constants/actions';
 
-const addInventory = ({ name, price, quantity }) => {
+const addInventory = (name, dq) => {
   return {
     type: Actions.ADD_INVENTORY,
     name,
-    price,
-    quantity
+    dq
   };
 }
 
