@@ -4,7 +4,7 @@ import InventoryListContainer from '../containers/InventoryListContainer';
 class Inventory extends Component {
   render() {
     return (
-      <section>
+      <section className='container'>
         <InventoryListContainer />
       </section>
     );

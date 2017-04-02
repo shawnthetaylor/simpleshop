@@ -2,7 +2,7 @@ import React from 'react';
 import AddInventory from '../containers/AddInventory';
 
 const Warehouse = () => (
-  <section>
+  <section className='container'>
     <AddInventory />
   </section>
 );

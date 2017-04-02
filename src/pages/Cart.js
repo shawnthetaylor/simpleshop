@@ -4,7 +4,7 @@ import CartListContainer from '../containers/CartListContainer';
 class Cart extends Component {
   render() {
     return (
-      <section>
+      <section className='container'>
         <CartListContainer />
       </section>
     );

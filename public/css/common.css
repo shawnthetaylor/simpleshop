@@ -14,3 +14,18 @@ html, body {
 a {
   text-decoration: none;
 }
+
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: auto;
+  max-width: 500px;
+  width: 80vw;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    width: 90vw;
+  }
+}
