@@ -1,4 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import styles from './InventoryItem.css';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
 
 const propTypes = {
   name: PropTypes.string.isRequired,
@@ -31,18 +35,38 @@ class InventoryItem extends Component {
   }
 
   render() {
-    // TODO: clean up
+    const disableIncrement = !this.props.quantity || this.state.selected === this.props.quantity;
     return (
-      <li>
-        <h2>{ this.props.name }</h2>
-        <p>{ this.props.price }</p>
-        <p>{ this.props.quantity }</p>
-        <div>
-          { this.state.selected > 0 ? <button onClick={ this.decrementSelected }>-</button> : null }
-          <p>{ this.state.selected }</p>
-          { this.state.selected <= this.props.quantity && this.props.quantity ? <button onClick={ this.incrementSelected }>+</button> : null }
+      <li className={ cx('item') }>
+        <div className={ cx('header') }>
+          <h2 className={ cx('header-item') }>{ this.props.name }</h2>
+          <p className={ cx('stock', { 'empty': !this.props.quantity } )}>
+            { this.props.quantity }
+          </p>
         </div>
-        <button onClick={ this.addToCart }>Add to Cart</button>
+        <div className={ cx('price') }>
+          { `$${ this.props.price }` }
+          <span className={ cx('unit') }>/ unit</span>
+        </div>
+        { this.props.quantity ?
+          <div className={ cx('cart') }>
+            <div className={ cx('cart-controls') }>
+              <button className={ cx('btn') }
+                      disabled={ this.state.selected === 0 }
+                      onClick={ this.decrementSelected }>
+                <i className='fa fa-minus'></i>
+              </button>
+              <p className={ cx('selected') }>{ this.state.selected }</p>
+              <button className={ cx('btn') }
+                      disabled={ disableIncrement }
+                      onClick={ this.incrementSelected }>
+                <i className='fa fa-plus'></i>
+              </button>
+            </div>
+            <button className={ cx('btn') }
+                    onClick={ this.addToCart }>Add to Cart</button>
+          </div>
+        : <div className={ cx('out') }>Out of Stock</div> }
       </li>
     );
   }
