@@ -50,23 +50,27 @@ class CartList extends Component {
   render() {
     return (
       <div>
-        <ul className={ cx('list') }>
-          { this.generateCartList() }
-        </ul>
-        <div className={ cx('total') }>
-          <h2>Total - </h2>
-          <p>{ `$${ this.getTotal() }` }</p>
-        </div>
-        <div className={ cx('buttons') }>
-          <button className='btn btn-primary'
-                  onClick={ this.props.checkout }>
-            Checkout
-          </button>
-          <button className='btn btn-secondary'
-                  onClick={ this.resetCart }>
-            Clear Cart
-          </button>
-        </div>
+        { this.props.cart.length ?
+          <div>
+            <ul className={ cx('list') }>
+              { this.generateCartList() }
+            </ul>
+            <div className={ cx('total') }>
+              <h2>Total - </h2>
+              <p>{ `$${ this.getTotal() }` }</p>
+            </div>
+            <div className={ cx('buttons') }>
+              <button className='btn btn-primary'
+                      onClick={ this.props.checkout }>
+                Checkout
+              </button>
+              <button className='btn btn-secondary'
+                      onClick={ this.resetCart }>
+                Clear Cart
+              </button>
+            </div>
+          </div> :
+          <h1 className='empty-page'>No items in cart!</h1> }
       </div>
     );
   }
