@@ -75,6 +75,11 @@ ul {
   color: var(--primary-font-color);
 }
 
+.empty-page {
+  color: var(--secondary-font-color);
+  text-align: center;
+}
+
 :root {
   --background-color: #efefef;
   --accent-color: #ed8151;
