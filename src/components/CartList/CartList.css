@@ -17,3 +17,14 @@
   color: var(--secondary-font-color);
   margin-right: 1rem;
 }
+
+.buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.buttons > button {
+  margin-right: 1rem;
+}
