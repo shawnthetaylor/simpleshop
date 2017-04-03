@@ -1,14 +1,13 @@
 .header {
-  background: #fdf1d5;
-  box-shadow: 0 0 1px 0 #222;
+  align-items: center;
   display: flex;
   justify-content: center;
+  height: 90px;
   margin-bottom: 1rem;
   width: 100vw;
 }
 
 .logo {
-  color: #222;
   font-family: 'Open-Sans', sans-serif;
   font-size: 2rem;
   text-transform: uppercase;
@@ -17,5 +16,10 @@
 }
 
 .logo-link {
-  color: #222;
+  color: var(--primary-font-color);
+}
+
+.sub {
+  color: var(--secondary-font-color);
+  font-size: .8rem;
 }

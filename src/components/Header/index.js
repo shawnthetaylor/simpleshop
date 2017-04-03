@@ -11,6 +11,7 @@ class Header extends Component {
         <header className={ cx('header') }>
           <h1 className={ cx('logo') }>
             <Link to='/' className={ cx('logo-link') }>SimpleShop</Link>
+            <p className={ cx('sub') }>( Work&Co interview )</p>
           </h1>
         </header>
     );
