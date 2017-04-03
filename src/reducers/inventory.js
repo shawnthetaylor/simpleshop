@@ -19,6 +19,7 @@ const inventory = (state = initialState.inventory, action) => {
             quantity: item.quantity + dq
           });
         }
+        return item;
       });
     }
 
@@ -30,6 +31,7 @@ const inventory = (state = initialState.inventory, action) => {
             quantity: item.quantity - dq
           });
         }
+        return item;
       });
     }
 

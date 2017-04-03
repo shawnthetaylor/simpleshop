@@ -13,6 +13,7 @@ const cart = (state = initialState.cart, action) => {
               quantity: item.quantity + quantity
             });
           }
+          return item;
         });
       }
 
