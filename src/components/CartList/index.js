@@ -19,6 +19,7 @@ class CartList extends Component {
     super(props, context);
 
     this.generateCartList = this.generateCartList.bind(this);
+    this.getTotal = this.getTotal.bind(this);
   }
 
   generateCartList() {
@@ -31,11 +32,25 @@ class CartList extends Component {
     });
   }
 
+  getTotal() {
+    let total = 0;
+    for (const item of this.props.cart) {
+      total += item.quantity*item.price;
+    }
+    return total.toFixed(2);
+  }
+
   render() {
     return (
-      <ul className={ cx('list') }>
-        { this.generateCartList() }
-      </ul>
+      <div>
+        <ul className={ cx('list') }>
+          { this.generateCartList() }
+        </ul>
+        <hr className={ cx('hr') } />
+        <p className={ cx('total') }>
+          { `Total - $${ this.getTotal() }` }
+        </p>
+      </div>
     );
   }
 }

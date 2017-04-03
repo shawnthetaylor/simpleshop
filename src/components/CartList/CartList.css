@@ -2,3 +2,10 @@
   display: flex;
   flex-direction: column;
 }
+
+.hr {
+  border: none;
+  border-bottom: 3px solid #333;
+  margin: 1rem 0;
+  width: 35%;
+}
