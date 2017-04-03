@@ -1,5 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import InventoryItem from '../InventoryItem';
+import styles from './InventoryList.css';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
 
 const propTypes = {
   inventory: PropTypes.arrayOf(PropTypes.shape({
@@ -28,9 +32,8 @@ class InventoryList extends Component {
   }
 
   render() {
-    // TODO: needs styling on <ul>
     return (
-      <ul>
+      <ul className={ cx('list') }>
         { this.generateInventoryList() }
       </ul>
     );
