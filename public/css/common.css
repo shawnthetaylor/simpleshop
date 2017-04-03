@@ -1,10 +1,10 @@
 * {
   box-sizing: border-box;
-  font-family: 'Open-Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 html, body {
-  background: #fdecc3; /* TODO: store as var */
+  background: #eaeaea;
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -27,11 +27,10 @@ ul {
 }
 
 .container {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 1rem;
   margin: auto;
-  max-width: 500px;
-  width: 80vw;
+  max-width: 900px;
+  overflow-y: scroll;
 }
 
 @media (max-width: 768px) {
@@ -39,4 +38,46 @@ ul {
     max-width: 100%;
     width: 90vw;
   }
+}
+
+.btn {
+  display: flex;
+  background: var(--background-color);
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all .2s;
+}
+
+.btn[disabled] {
+  border-color: var(--secondary-font-color);
+  color: var(--secondary-font-color);
+}
+
+.btn-small {
+  padding: 5px;
+  min-width: 35px;
+  min-height: 35px;
+  font-size: .8rem;
+}
+
+.btn-primary {
+  background: var(--accent-color);
+  border: 3px solid var(--accent-color);
+  color: var(--background-color);
+}
+
+.btn-secondary {
+  border: 3px solid var(--primary-font-color);
+  color: var(--primary-font-color);
+}
+
+:root {
+  --background-color: #efefef;
+  --accent-color: #ed8151;
+  --primary-font-color: #5a5350;
+  --secondary-font-color: #aca89a;
 }
