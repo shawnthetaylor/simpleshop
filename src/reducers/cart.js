@@ -3,6 +3,9 @@ import initialState from '../constants/initialState';
 
 const cart = (state = initialState.cart, action) => {
   switch(action.type) {
+    case Actions.HYDRATE_CART:
+      return action.cart;
+
     case Actions.UPDATE_CART: {
       const { name, quantity, price } = action;
       // if item already in cart, simply update its quantity...

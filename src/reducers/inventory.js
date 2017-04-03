@@ -3,8 +3,15 @@ import initialState from '../constants/initialState';
 
 const inventory = (state = initialState.inventory, action) => {
   switch(action.type) {
+    case Actions.HYDRATE_INVENTORY:
+      return action.inventory;
+
     case Actions.CREATE_INVENTORY: {
       const { name, price, quantity } = action;
+      if (state.some(i => i.name === name)) {
+        return state;
+      }
+      
       return [
         ...state,
         { name, price, quantity }
