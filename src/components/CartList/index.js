@@ -46,9 +46,9 @@ class CartList extends Component {
         <ul className={ cx('list') }>
           { this.generateCartList() }
         </ul>
-        <hr className={ cx('hr') } />
         <p className={ cx('total') }>
-          { `Total - $${ this.getTotal() }` }
+          <h2>Total - </h2>
+          <p>{ `$${ this.getTotal() }` }</p>
         </p>
       </div>
     );
