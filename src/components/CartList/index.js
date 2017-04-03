@@ -1,5 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import CartItem from '../CartItem';
+import styles from './CartList.css';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
 
 const propTypes = {
   cart: PropTypes.arrayOf(PropTypes.shape({
@@ -29,7 +33,7 @@ class CartList extends Component {
 
   render() {
     return (
-      <ul>
+      <ul className={ cx('list') }>
         { this.generateCartList() }
       </ul>
     );
