@@ -1,4 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames/bind';
+import styles from './CartItem.css';
+
+const cx = classNames.bind(styles);
 
 const propTypes = {
   name: PropTypes.string.isRequired,
@@ -22,10 +26,19 @@ class CartItem extends Component {
 
   render() {
     return (
-      <li>
-        <h2>{ this.props.name }</h2>
-        <p>{ this.props.quantity }</p>
-        <button onClick={ this.deleteItem }>X</button>
+      <li className={ cx('item') }>
+        <div className={ cx('properties') }>
+          <h2>{ this.props.name }</h2>
+          <p className={ cx('selected') }>
+            <i className='fa fa-times'></i>
+            <span className={ cx('quantity') }>
+              { this.props.quantity }
+            </span>
+          </p>
+        </div>
+        <button className={ cx('btn') } onClick={ this.deleteItem }>
+          <i className='fa fa-times-circle'></i>
+        </button>
       </li>
     );
   }

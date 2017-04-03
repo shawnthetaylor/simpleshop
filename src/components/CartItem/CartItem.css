@@ -1,0 +1,36 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid #333;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  padding: 1rem;
+}
+
+.properties {
+  align-items: center;
+  display: flex;
+}
+
+.selected {
+  margin-left: 10px;
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+.quantity {
+  margin-left: 5px;
+}
+
+.btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.btn:hover,
+.btn:focus {
+  color: #8B2635;
+}
