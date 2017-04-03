@@ -2,10 +2,18 @@ import React, { Component, PropTypes } from 'react';
 import styles from './InventoryForm.css';
 import classNames from 'classnames/bind';
 
+//TODO: check for cases where we use the same variable over and over in a method
+
 const cx = classNames.bind(styles);
 
 const propTypes = {
-  onFormSubmit: PropTypes.func.isRequired
+  inventory: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired
+  }).isRequired).isRequired,
+  onCreateItem: PropTypes.func.isRequired,
+  onUpdateItem: PropTypes.func.isRequired
 };
 
 class InventoryForm extends Component {
@@ -14,12 +22,14 @@ class InventoryForm extends Component {
 
     this.state = {
       current: 0,
-      errorMessage: ''
+      errorMessage: '',
+      isUpdate: false
     };
 
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.onConfirm = this.onConfirm.bind(this);
     this.resetForm = this.resetForm.bind(this);
+    this.getConfirmMessage = this.getConfirmMessage.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +44,28 @@ class InventoryForm extends Component {
     if (target.value === '') {
       this.setState({ errorMessage: 'Please provide a value for this field.'});
       return;
+    }
+
+    // Duplicate detection
+    if (this.state.current === 1) {
+      const duplicate = this.props.inventory.find(i => {
+        return i.name === this.name.value;
+      });
+      if (duplicate) {
+        if (duplicate.price === parseFloat(this.price.value)) {
+          // If same name and price, update quantity
+          this.setState({ isUpdate: true });
+        } else {
+          // If same name, different price, do not allow duplicate
+          const message = <span>
+              { `Another item named ${this.name.value} exists. Either enter
+                 the same price to update its quantity or `}
+              <a href='#' onClick={ this.resetForm }>Start Over</a>.
+            </span>;
+          this.setState({ errorMessage: message });
+          return;
+        }
+      }
     }
 
     // let progress bar animation finish
@@ -56,13 +88,26 @@ class InventoryForm extends Component {
       quantity: parseInt(this.quantity.value, 10)
     };
 
-    this.props.onFormSubmit(item);
+    if (this.state.isUpdate) {
+      this.props.onUpdateItem(item.name, item.quantity);
+    } else {
+      this.props.onCreateItem(item);
+    }
 
     this.resetForm();
   }
 
+  getConfirmMessage() {
+    let message = 'Creating a new item.';
+    if (this.state.isUpdate) {
+      message = 'Updating quantity of an existing product.';
+    }
+
+    return `${message} Does this look right?`;
+  }
+
   resetForm() {
-    this.setState({ current: 0 });
+    this.setState({ current: 0, isUpdate: false, errorMessage: '' });
     this.name.value = '';
     this.price.value = '';
     this.quantity.value = ''
@@ -73,7 +118,7 @@ class InventoryForm extends Component {
     };
 
     return (
-      <form onSubmit={ this.onFormSubmit }>
+      <form className={ cx('form') } onSubmit={ this.onFormSubmit }>
         <ul>
           <li className={ cx('form-item', { 'current': this.state.current === 0 }) }>
             <label className={ cx('form-label') } htmlFor='name'>
@@ -109,12 +154,31 @@ class InventoryForm extends Component {
                    name='quantity'
                    ref={ node => { this.quantity = node; }} />
           </li>
-          <li className={ cx('form-confirm', { 'current': this.state.current === -1 }) }>
-            <h2>Does this look right?</h2>
+          <li className={ cx('form-confirm', {
+                'current': this.state.current === -1
+              }) }>
+            <h2 className={ cx('form-confirm-message') }>
+              { this.getConfirmMessage() }
+            </h2>
             <div className={ cx('form-confirm-data') }>
-              <p><strong>Name </strong>{ this.name ? this.name.value : '' }</p>
-              <p><strong>Price </strong>{ this.price ? this.price.value : '' }</p>
-              <p><strong>Quantity </strong>{ this.quantity ? this.quantity.value : '' }</p>
+              { this.state.isUpdate ?
+                <p>
+                  <strong>Additional Stock </strong>
+                  { this.quantity ? this.quantity.value : '' }
+                </p> :
+                <div>
+                  <p>
+                    <strong>Name </strong>{ this.name ? this.name.value : '' }</p>
+                  <p>
+                    <strong>Price </strong>
+                    ${ this.price ? this.price.value : '' }
+                  </p>
+                  <p>
+                    <strong>Quantity </strong>
+                    { this.quantity ? this.quantity.value : '' }
+                  </p>
+                </div>
+              }
               <div className={ cx('form-confirm-btns') }>
                 <button className='btn btn-primary' type='button' onClick={ this.onConfirm }>
                   Looks Good
@@ -133,7 +197,7 @@ class InventoryForm extends Component {
             <p className={ cx('message', { 'error': this.state.errorMessage }) }>
               { this.state.errorMessage }
             </p>
-            <p>{ `${ this.state.current } / 3` }</p>
+            <p className={ cx('step') }>{ `${ this.state.current } / 3` }</p>
           </div>
         </div>
         <input className={ cx('form-submit') } type='submit' value='Submit' />
