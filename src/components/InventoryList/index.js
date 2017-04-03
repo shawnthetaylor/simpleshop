@@ -33,9 +33,13 @@ class InventoryList extends Component {
 
   render() {
     return (
-      <ul className={ cx('list') }>
-        { this.generateInventoryList() }
-      </ul>
+      <div>
+      { this.props.inventory.length ?
+        <ul className={ cx('list') }>
+          { this.generateInventoryList() }
+        </ul> :
+        <h1 className='empty-page'>No items in inventory!</h1> }
+      </div>
     );
   }
 }
