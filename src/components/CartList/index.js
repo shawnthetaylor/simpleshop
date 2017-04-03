@@ -11,7 +11,9 @@ const propTypes = {
     quantity: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired
   }).isRequired).isRequired,
-  onCartDelete: PropTypes.func.isRequired
+  onCartDelete: PropTypes.func.isRequired,
+  resetCart: PropTypes.func.isRequired,
+  checkout: PropTypes.func.isRequired
 };
 
 class CartList extends Component {
@@ -20,6 +22,7 @@ class CartList extends Component {
 
     this.generateCartList = this.generateCartList.bind(this);
     this.getTotal = this.getTotal.bind(this);
+    this.resetCart = this.resetCart.bind(this);
   }
 
   generateCartList() {
@@ -40,16 +43,30 @@ class CartList extends Component {
     return total.toFixed(2);
   }
 
+  resetCart() {
+    this.props.resetCart(this.props.cart);
+  }
+
   render() {
     return (
       <div>
         <ul className={ cx('list') }>
           { this.generateCartList() }
         </ul>
-        <p className={ cx('total') }>
+        <div className={ cx('total') }>
           <h2>Total - </h2>
           <p>{ `$${ this.getTotal() }` }</p>
-        </p>
+        </div>
+        <div className={ cx('buttons') }>
+          <button className='btn btn-primary'
+                  onClick={ this.props.checkout }>
+            Checkout
+          </button>
+          <button className='btn btn-secondary'
+                  onClick={ this.resetCart }>
+            Clear Cart
+          </button>
+        </div>
       </div>
     );
   }
