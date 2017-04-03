@@ -19,7 +19,6 @@ class CartItem extends Component {
   }
 
   deleteItem() {
-    // TODO: ask for confirmation
     const { name, price, quantity } = this.props;
     this.props.onCartDelete({ name, price, quantity });
   }
@@ -36,7 +35,7 @@ class CartItem extends Component {
             </span>
           </p>
         </div>
-        <button className={ cx('btn') } onClick={ this.deleteItem }>
+        <button className={ cx('delete') } onClick={ this.deleteItem }>
           <i className='fa fa-times-circle'></i>
         </button>
       </li>

@@ -1,10 +1,12 @@
 .item {
   display: flex;
   justify-content: space-between;
-  border: 3px solid #333;
+  border: 3px solid var(--primary-font-color);
+  color: var(--primary-font-color);
   margin-top: .5rem;
   margin-bottom: .5rem;
   padding: 1rem;
+  min-width: 300px;
 }
 
 .properties {
@@ -13,6 +15,7 @@
 }
 
 .selected {
+  color: var(--secondary-font-color);
   margin-left: 10px;
   font-size: .8rem;
   font-weight: bold;
@@ -22,15 +25,16 @@
   margin-left: 5px;
 }
 
-.btn {
+.delete {
+  color: var(--secondary-font-color);
   background: none;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #333;
+  transition: color .2s;
 }
 
-.btn:hover,
-.btn:focus {
-  color: #8B2635;
+.item:hover .delete,
+.item:focus .delete {
+  color: var(--primary-font-color);
 }
