@@ -1,9 +1,9 @@
 import React from 'react';
-import AddInventory from '../containers/AddInventory';
+import InventoryFormContainer from '../containers/InventoryFormContainer';
 
 const Warehouse = () => (
   <section className='container'>
-    <AddInventory />
+    <InventoryFormContainer />
   </section>
 );
 
