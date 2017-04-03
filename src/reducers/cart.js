@@ -6,6 +6,9 @@ const cart = (state = initialState.cart, action) => {
     case Actions.HYDRATE_CART:
       return action.cart;
 
+    case Actions.EMPTY_CART:
+      return [];
+
     case Actions.UPDATE_CART: {
       const { name, quantity, price } = action;
       // if item already in cart, simply update its quantity...
@@ -27,7 +30,7 @@ const cart = (state = initialState.cart, action) => {
       ];
     }
 
-    case Actions.DELETE_CART: {
+    case Actions.DELETE_CART_ITEM: {
       return state.filter(i => i.name !== action.name);
     }
 
