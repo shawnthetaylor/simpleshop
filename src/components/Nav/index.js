@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, IndexLink } from 'react-router';
 import classNames from 'classnames/bind';
 import styles from './Nav.css';
 
@@ -23,11 +23,22 @@ class Nav extends Component {
 
   generateNavItems() {
     return this.navItems.map((item, i) => {
+      const props = {
+        to: item.route,
+        activeClassName: cx('active'),
+        className: cx('nav-item-link')
+      };
+      const icon = <i className={ item.className } aria-hidden='true'></i>;
       return (
         <li key={ i } className={ cx('box', 'nav-item') }>
-          <Link to={ item.route } className={ cx('nav-item-link') }>
-            <i className={ item.className } aria-hidden='true'></i>
-          </Link>
+          { item.route === '/' ?
+            <IndexLink {...props}>
+              { icon }
+            </IndexLink> :
+            <Link {...props}>
+              { icon }
+            </Link>
+          }
         </li>
       );
     });
