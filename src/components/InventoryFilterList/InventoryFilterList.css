@@ -8,11 +8,35 @@
   align-items: center;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   padding: 1rem;
   margin: 1rem auto 2rem;
 }
 
 .list > li {
-  margin: auto 1rem;
+  display: flex;
+  margin: 1rem;
+}
+
+.filter-header {
+  color: var(--secondary-font-color);
+  text-align: center;
+  display: none;
+  font-size: .8rem;
+}
+.filter-item-header { display: block; }
+
+@media (max-width: 768px) {
+  .filter-item-header { display: none !important; }
+
+  .filter-header { display: block; }
+
+  .list > li {
+    justify-content: center;
+    flex-basis: 100%;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+  }
 }

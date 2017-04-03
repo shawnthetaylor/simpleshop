@@ -9,8 +9,9 @@ class InventoryFilterList extends Component {
   render() {
     return (
       <section>
+        <h2 className={ cx('filter-header') }>Filters</h2>
         <ul className={ cx('list') }>
-          <li>
+          <li className={ cx('filter-item-header') }>
             <h2 className={ cx('filters') }>Filters:</h2>
           </li>
           <li>
@@ -25,12 +26,12 @@ class InventoryFilterList extends Component {
           </li>
           <li>
             <InventoryFilterContainer filter='SHOW_ALPHA_STOCK'>
-              A <i className='fa fa-arrow-right'></i> Z
+              Alphabetical
             </InventoryFilterContainer>
           </li>
           <li>
             <InventoryFilterContainer filter='SHOW_PRICE_STOCK'>
-              $ <i className='fa fa-arrow-right'></i> $$$$
+              Price
             </InventoryFilterContainer>
           </li>
         </ul>
