@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import Nav from '../components/Nav';
-import Header from '../components/Header';
+import Nav from '../Nav';
+import Header from '../Header';
+import styles from './App.css';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
 
 class App extends Component {
   constructor(props, context) {
@@ -9,7 +13,7 @@ class App extends Component {
 
   render() {
     return (
-      <section>
+      <section className={ cx('app') }>
         <Nav />
         <Header />
         { this.props.children }
