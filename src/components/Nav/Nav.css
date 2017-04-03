@@ -5,7 +5,7 @@
   left: 30px;
   overflow: hidden;
   position: fixed;
-  top: 121px;
+  top: 20px;
   z-index: 1;
 }
 
@@ -19,7 +19,7 @@
 
 .box {
   align-items: center;
-  border: 3px solid #cc8969;
+  border: 3px solid var(--accent-color);
   display: flex;
   font-size: 1.5rem;
   cursor: pointer;
@@ -53,7 +53,7 @@
 
 .nav-item-link {
   align-items: center;
-  color: #cc8969;
+  color: var(--accent-color);
   display: flex;
   height: 100%;
   justify-content: center;
@@ -61,8 +61,8 @@
 }
 
 .main {
-  background: #fdecc3;
-  color: #cc8969;
+  background: var(--background-color);
+  color: var(--accent-color);
   font-size: 1rem;
   font-weight: 700;
   composes: box;
@@ -91,7 +91,7 @@
 }
 
 .open {
-  background: #cc8969;
+  background: var(--accent-color);
 }
 
 .menu {
