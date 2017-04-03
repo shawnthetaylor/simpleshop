@@ -52,7 +52,7 @@ class AddInventory extends Component {
         <label>
           How many units would you like to add?
           <input type='number'
-                 min='0'
+                 min='1'
                  name='quantity'
                  ref={ node => { this.quantity = node; }}
                  required />
