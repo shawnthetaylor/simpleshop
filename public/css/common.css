@@ -78,6 +78,7 @@ ul {
 .empty-page {
   color: var(--secondary-font-color);
   text-align: center;
+  font-size: 2em;
 }
 
 :root {
