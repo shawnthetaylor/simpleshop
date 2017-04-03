@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import InventoryFilterList from '../InventoryFilterList';
 import InventoryItem from '../InventoryItem';
 import styles from './InventoryList.css';
 import classNames from 'classnames/bind';
@@ -35,9 +36,12 @@ class InventoryList extends Component {
     return (
       <div>
       { this.props.inventory.length ?
-        <ul className={ cx('list') }>
-          { this.generateInventoryList() }
-        </ul> :
+        <div>
+          <InventoryFilterList />
+          <ul className={ cx('list') }>
+            { this.generateInventoryList() }
+          </ul>
+        </div> :
         <h1 className='empty-page'>No items in inventory!</h1> }
       </div>
     );
