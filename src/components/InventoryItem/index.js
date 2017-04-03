@@ -51,19 +51,20 @@ class InventoryItem extends Component {
         { this.props.quantity ?
           <div className={ cx('cart') }>
             <div className={ cx('cart-controls') }>
-              <button className={ cx('btn') }
+              <button className={ cx('btn btn-small btn-secondary') }
                       disabled={ this.state.selected === 0 }
                       onClick={ this.decrementSelected }>
                 <i className='fa fa-minus'></i>
               </button>
               <p className={ cx('selected') }>{ this.state.selected }</p>
-              <button className={ cx('btn') }
+              <button className={ cx('btn btn-small btn-secondary') }
                       disabled={ disableIncrement }
                       onClick={ this.incrementSelected }>
                 <i className='fa fa-plus'></i>
               </button>
             </div>
-            <button className={ cx('btn') }
+            <button className={ cx('btn btn-secondary') }
+                    disabled={ !this.state.selected }
                     onClick={ this.addToCart }>Add to Cart</button>
           </div>
         : <div className={ cx('out') }>Out of Stock</div> }
