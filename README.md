@@ -9,5 +9,7 @@ npm i
 gulp build && gulp
 ```
 
+Navigate to `http://localhost:3000` to get started.
+
 
 ###### **NOTE**: You will need gulp installed locally
