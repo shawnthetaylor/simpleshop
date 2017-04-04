@@ -2,9 +2,6 @@
   "name": "simpleshop",
   "version": "1.0.0",
   "description": "A simple inventory management and shopping cart demo",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Shawn Taylor",
   "license": "ISC",
   "dependencies": {
