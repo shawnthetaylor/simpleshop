@@ -7,6 +7,6 @@ const addCart = ({ name, price }, dq) => {
     quantity: dq,
     price,
   };
-}
+};
 
 export default addCart;

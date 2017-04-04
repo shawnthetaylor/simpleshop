@@ -6,6 +6,6 @@ const deleteInventory = (name, dq) => {
     name,
     dq
   };
-}
+};
 
 export default deleteInventory;

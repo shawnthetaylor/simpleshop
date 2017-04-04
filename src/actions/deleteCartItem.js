@@ -5,6 +5,6 @@ const deleteCartItem = ({ name }) => {
     type: Actions.DELETE_CART_ITEM,
     name
   };
-}
+};
 
 export default deleteCartItem;

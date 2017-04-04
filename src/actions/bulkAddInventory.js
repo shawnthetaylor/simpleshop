@@ -5,6 +5,6 @@ const bulkAddInventory = cart => {
     type: Actions.BULK_ADD_INVENTORY,
     cart
   };
-}
+};
 
 export default bulkAddInventory;

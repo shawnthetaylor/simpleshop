@@ -7,6 +7,6 @@ const createInventory = ({ name, price, quantity }) => {
     price,
     quantity
   };
-}
+};
 
 export default createInventory;

@@ -6,6 +6,6 @@ const addInventory = (name, dq) => {
     name,
     dq
   };
-}
+};
 
 export default addInventory;

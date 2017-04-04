@@ -5,6 +5,6 @@ const updateInventoryFilter = filter => {
     type: Actions.UPDATE_FILTER,
     filter
   };
-}
+};
 
 export default updateInventoryFilter;
