@@ -1,23 +1,23 @@
 .list {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
   margin: 1rem auto;
 }
 
-@media (min-width: 992px) {
-  .list { display: none };
-}
-
 .item-link {
-  display: block;
-  color: var(--primary-font-color);
-  padding: 5px;
-  margin: 1rem;
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+  color: var(--primary-color);
+  display: block;
+  margin: 1rem;
+  padding: 5px;
   transition: box-shadow 0.2s;
 }
 
 .active {
   box-shadow: 0 5px 0 0 var(--accent-color);
+}
+
+@media (min-width: var(--upper-breakpoint)) {
+  .list { display: none };
 }

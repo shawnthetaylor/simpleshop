@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames/bind';
+
 import CartItem from '../CartItem';
 import styles from './CartList.css';
-import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
@@ -31,14 +32,14 @@ class CartList extends Component {
         <CartItem { ...item }
                   key={ i }
                   onCartDelete={ () => this.props.onCartDelete(item) } />
-      )
+      );
     });
   }
 
   getTotal() {
     let total = 0;
     for (const item of this.props.cart) {
-      total += item.quantity*item.price;
+      total += item.quantity * item.price;
     }
     return total.toFixed(2);
   }
@@ -70,11 +71,12 @@ class CartList extends Component {
               </button>
             </div>
           </div> :
-          <h1 className='empty-page'>No items in cart!</h1> }
+          <h1 className='empty-page'>No items in cart!</h1>
+        }
       </div>
     );
   }
-}
+};
 
 CartList.propTypes = propTypes;
 

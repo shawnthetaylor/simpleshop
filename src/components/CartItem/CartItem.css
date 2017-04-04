@@ -1,12 +1,16 @@
 .item {
+  border: 3px solid var(--primary-color);
+  color: var(--primary-color);
   display: flex;
   justify-content: space-between;
-  border: 3px solid var(--primary-font-color);
-  color: var(--primary-font-color);
-  margin-top: .5rem;
   margin-bottom: .5rem;
-  padding: 1rem;
+  margin-top: .5rem;
   min-width: 300px;
+  padding: 1rem;
+}
+.item:hover .delete,
+.item:focus .delete {
+  color: var(--primary-color);
 }
 
 .properties {
@@ -15,10 +19,10 @@
 }
 
 .selected {
-  color: var(--secondary-font-color);
-  margin-left: 10px;
-  font-size: .8rem;
+  color: var(--secondary-color);
+  font-size: .8rem; /* TODO: store as var */
   font-weight: bold;
+  margin-left: 10px;
 }
 
 .quantity {
@@ -26,15 +30,10 @@
 }
 
 .delete {
-  color: var(--secondary-font-color);
   background: none;
   border: none;
-  font-size: 1.5rem;
+  color: var(--secondary-color);
   cursor: pointer;
+  font-size: 1.5rem; /* TODO: store as var */
   transition: color .2s;
-}
-
-.item:hover .delete,
-.item:focus .delete {
-  color: var(--primary-font-color);
 }

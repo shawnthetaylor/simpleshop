@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import classNames from 'classnames/bind';
+
 import InventoryFilterContainer from '../../containers/InventoryFilterContainer';
 import styles from './InventoryFilterList.css';
-import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
@@ -38,6 +39,6 @@ class InventoryFilterList extends Component {
       </section>
     );
   }
-}
+};
 
 export default InventoryFilterList;

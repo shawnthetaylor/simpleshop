@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames/bind';
+
 import InventoryFilterList from '../InventoryFilterList';
 import InventoryItem from '../InventoryItem';
 import styles from './InventoryList.css';
-import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
@@ -46,7 +47,7 @@ class InventoryList extends Component {
       </div>
     );
   }
-}
+};
 
 InventoryList.propTypes = propTypes;
 

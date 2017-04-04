@@ -1,5 +1,5 @@
 .filters {
-  color: var(--secondary-font-color);
+  color: var(--secondary-color);
   font-size: .8rem;
   text-align: center;
 }
@@ -10,8 +10,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 1rem;
   margin: 1rem auto 2rem;
+  padding: 1rem;
 }
 
 .list > li {
@@ -20,23 +20,22 @@
 }
 
 .filter-header {
-  color: var(--secondary-font-color);
-  text-align: center;
+  color: var(--secondary-color);
   display: none;
   font-size: .8rem;
+  text-align: center;
 }
 .filter-item-header { display: block; }
 
-@media (max-width: 768px) {
+@media (max-width: var(--mid-breakpoint)) {
   .filter-item-header { display: none !important; }
 
   .filter-header { display: block; }
 
   .list > li {
-    justify-content: center;
-    flex-basis: 100%;
-    margin: 5px;
-    justify-content: center;
     align-items: center;
+    flex-basis: 100%;
+    justify-content: center;
+    margin: 5px;
   }
 }

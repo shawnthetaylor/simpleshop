@@ -1,16 +1,9 @@
-/* TODO: alpha */
-/* TODO: attempt simplification of class names */
-
 .nav {
   left: 30px;
   overflow: hidden;
   position: fixed;
   top: 20px;
   z-index: 1;
-}
-
-@media (max-width: 992px) {
-  .nav { display: none; }
 }
 
 .nav-list {
@@ -23,63 +16,64 @@
 
 .box {
   align-items: center;
-  border: 3px solid var(--primary-font-color);
+  border: 3px solid var(--primary-color);
+  cursor: pointer;
   display: flex;
   font-size: 1.5rem;
-  cursor: pointer;
-  justify-content: center;
   height: 70px;
+  justify-content: center;
   margin: 5px auto;
   position: relative;
   width: 70px;
 }
 
 .nav-item {
-  visibility: hidden;
-  position: relative;
   opacity: 0;
+  position: relative;
   top: -10px;
-  transition: opacity .3s, top .3s, left .2s;
+  transition: opacity .3s, top .3s;
+  visibility: hidden;
 }
-
 .nav-item:nth-child(3) {
   transition-delay: .1s;
 }
 .nav-item:nth-child(4) {
   transition-delay: .2s;
 }
+.open ~ .nav-item {
+  opacity: 1;
+  top: 0px;
+  visibility: visible;
+}
 
 .nav-item-link {
-  background: var(--background-color);
   align-items: center;
-  color: var(--primary-font-color);
+  background: var(--background-color);
+  color: var(--primary-color);
   display: flex;
   height: 100%;
   justify-content: center;
-  width: 100%;
   transition: background .2s;
+  width: 100%;
 }
 
 .main {
   background: var(--background-color);
-  color: var(--primary-font-color);
+  color: var(--primary-color);
+  composes: box;
   font-size: 1rem;
   font-weight: 700;
-  composes: box;
-  font-family: 'OpenSans', sans-serif;
   text-rendering: geometricPrecision;
 }
-
 .main > div {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
+  height: 40px;
   position: absolute;
   width: 40px;
-  align-items: center;
-  height: 40px;
   transition: all .2s;
 }
-
 .main > div > span {
   flex-basis: 50%;
   text-align: center;
@@ -89,28 +83,25 @@
   color: var(--background-color);
   opacity: 0;
 }
-
-.open {
-  background: var(--primary-font-color);
-}
-
-.menu {
+.open > .hide {
   opacity: 1;
 }
 
-.open > .hide {
+.open {
+  background: var(--primary-color);
+}
+
+.menu {
   opacity: 1;
 }
 .open > .menu {
   opacity: 0;
 }
 
-.open ~ .nav-item {
-  visibility: visible;
-  top: 0px;
-  opacity: 1;
-}
-
 .active {
   background: var(--accent-color);
+}
+
+@media (max-width: var(--upper-breakpoint)) {
+  .nav { display: none; }
 }

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router, IndexRoute, Route, browserHistory } from 'react-router';
+
 import App from '../components/App';
 import Warehouse from '../pages/Warehouse';
 import Inventory from '../pages/Inventory';

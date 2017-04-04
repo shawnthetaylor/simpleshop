@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames/bind';
+
 import styles from './CartItem.css';
 
 const cx = classNames.bind(styles);
@@ -41,7 +42,7 @@ class CartItem extends Component {
       </li>
     );
   }
-}
+};
 
 CartItem.propTypes = propTypes;
 

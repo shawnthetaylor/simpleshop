@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import styles from './InventoryItem.css';
 import classNames from 'classnames/bind';
+
+import styles from './InventoryItem.css';
 
 const cx = classNames.bind(styles);
 
@@ -35,28 +36,31 @@ class InventoryItem extends Component {
   }
 
   render() {
-    const disableIncrement = !this.props.quantity || this.state.selected === this.props.quantity;
+    const { quantity, name, price } = this.props;
+    const { selected } = this.state;
+    const disableIncrement = !quantity || selected === quantity;
+
     return (
       <li className={ cx('item') }>
         <div className={ cx('header') }>
-          <h2 className={ cx('header-item') }>{ this.props.name }</h2>
-          <p className={ cx('stock', { 'empty': !this.props.quantity } )}>
-            { this.props.quantity }
+          <h2 className={ cx('header-item') }>{ name }</h2>
+          <p className={ cx('stock', { 'empty': !quantity } )}>
+            { quantity }
           </p>
         </div>
         <div className={ cx('price') }>
-          { `$${ this.props.price }` }
+          { `$${ price }` }
           <span className={ cx('unit') }>/ unit</span>
         </div>
-        { this.props.quantity ?
+        { quantity ?
           <div className={ cx('cart') }>
             <div className={ cx('cart-controls') }>
               <button className={ cx('btn btn-small btn-secondary') }
-                      disabled={ this.state.selected === 0 }
+                      disabled={ selected === 0 }
                       onClick={ this.decrementSelected }>
                 <i className='fa fa-minus'></i>
               </button>
-              <p className={ cx('selected') }>{ this.state.selected }</p>
+              <p className={ cx('selected') }>{ selected }</p>
               <button className={ cx('btn btn-small btn-secondary') }
                       disabled={ disableIncrement }
                       onClick={ this.incrementSelected }>
@@ -64,14 +68,14 @@ class InventoryItem extends Component {
               </button>
             </div>
             <button className={ cx('btn btn-secondary') }
-                    disabled={ !this.state.selected }
+                    disabled={ !selected }
                     onClick={ this.addToCart }>Add to Cart</button>
-          </div>
-        : <div className={ cx('out') }>Out of Stock</div> }
+          </div> :
+          <div className={ cx('out') }>Out of Stock</div> }
       </li>
     );
   }
-}
+};
 
 InventoryItem.propTypes = propTypes;
 

@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import styles from './InventoryForm.css';
 import classNames from 'classnames/bind';
 
-//TODO: check for cases where we use the same variable over and over in a method
+import styles from './InventoryForm.css';
 
 const cx = classNames.bind(styles);
 
@@ -39,7 +38,9 @@ class InventoryForm extends Component {
 
   onFormSubmit(e) {
     e.preventDefault();
-    const target = this.inputs[this.state.current];
+
+    const { current } = this.state;
+    const target = this.inputs[current];
 
     if (target.value === '') {
       this.setState({ errorMessage: 'Please provide a value for this field.'});
@@ -47,7 +48,7 @@ class InventoryForm extends Component {
     }
 
     // Duplicate detection
-    if (this.state.current === 1) {
+    if (current === 1) {
       const duplicate = this.props.inventory.find(i => {
         return i.name === this.name.value;
       });
@@ -56,29 +57,33 @@ class InventoryForm extends Component {
           // If same name and price, update quantity
           this.setState({ isUpdate: true });
         } else {
-          // If same name, different price, do not allow duplicate
-          const message = <span>
+          // If same name but different price, do not allow duplicate
+          const message = (
+            <span>
               { `Another item named ${this.name.value} exists. Either enter
                  the same price to update its quantity or `}
               <a href='#' onClick={ this.resetForm }>Start Over</a>.
-            </span>;
+            </span>
+          );
           this.setState({ errorMessage: message });
           return;
         }
       }
     }
 
-    // let progress bar animation finish
-    if (this.state.current === 2) {
-      this.setState({ current: this.state.current + 1 });
+    // Allow progress bar animation to reach full width
+    if (current === 2) {
+      this.setState({ current: current + 1 });
+      // Bar width transition time is 200
       setTimeout(() => {
         this.setState({ current: -1 })
       }, 700);
       return;
     }
 
+    // Clear error message before moving to next step
     this.setState({ errorMessage: '' });
-    this.setState({ current: this.state.current + 1 });
+    this.setState({ current: current + 1 });
   }
 
   onConfirm() {
@@ -102,7 +107,6 @@ class InventoryForm extends Component {
     if (this.state.isUpdate) {
       message = 'Updating quantity of an existing product.';
     }
-
     return `${message} Does this look right?`;
   }
 
@@ -112,6 +116,7 @@ class InventoryForm extends Component {
     this.price.value = '';
     this.quantity.value = ''
   }
+
   render() {
     let progress = {
       width: `${(this.state.current / 3) * 100}%`
@@ -180,10 +185,14 @@ class InventoryForm extends Component {
                 </div>
               }
               <div className={ cx('form-confirm-btns') }>
-                <button className='btn btn-primary' type='button' onClick={ this.onConfirm }>
+                <button className='btn btn-primary'
+                        type='button'
+                        onClick={ this.onConfirm }>
                   Looks Good
                 </button>
-                <button className='btn btn-secondary' type='button' onClick={ this.resetForm }>
+                <button className='btn btn-secondary'
+                        type='button'
+                        onClick={ this.resetForm }>
                   Cancel
                 </button>
               </div>
@@ -204,7 +213,7 @@ class InventoryForm extends Component {
       </form>
     );
   }
-}
+};
 
 InventoryForm.propTypes = propTypes
 

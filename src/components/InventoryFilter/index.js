@@ -8,6 +8,10 @@ const propTypes = {
 };
 
 class InventoryFilter extends Component {
+  constructor(props, context) {
+    super(props, context);
+  }
+
   render() {
     return (
       <button type='button'
@@ -20,7 +24,7 @@ class InventoryFilter extends Component {
       </button>
     );
   }
-}
+};
 
 InventoryFilter.propTypes = propTypes;
 
