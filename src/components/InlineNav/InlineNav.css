@@ -18,6 +18,6 @@
   box-shadow: 0 5px 0 0 var(--accent-color);
 }
 
-@media (min-width: var(--upper-breakpoint)) {
+@media (min-width: 992px) {
   .list { display: none };
 }

@@ -33,13 +33,6 @@ ul {
   padding: 1rem;
 }
 
-@media (max-width: var(--mid-breakpoint)) {
-  .container {
-    max-width: 100%;
-    width: 90vw;
-  }
-}
-
 .btn {
   align-items: center;
   background: var(--background-color);
@@ -81,12 +74,16 @@ ul {
   font-size: 2em;
 }
 
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    width: 90vw;
+  }
+}
+
 :root {
   --accent-color: #ed8151;
   --background-color: #efefef;
   --primary-color: #5a5350;
   --secondary-color: #aca89a;
-
-  --mid-breakpoint: 768px;
-  --upper-breakpoint: 992px;
 }

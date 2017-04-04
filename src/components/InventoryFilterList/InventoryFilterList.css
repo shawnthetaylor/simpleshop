@@ -27,7 +27,7 @@
 }
 .filter-item-header { display: block; }
 
-@media (max-width: var(--mid-breakpoint)) {
+@media (max-width: 768px) {
   .filter-item-header { display: none !important; }
 
   .filter-header { display: block; }
