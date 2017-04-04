@@ -4,6 +4,7 @@ import initialState from '../constants/initialState';
 const cart = (state = initialState.cart, action) => {
   switch(action.type) {
     case Actions.HYDRATE_CART:
+      // Update store with session data
       return action.cart;
 
     case Actions.EMPTY_CART:
@@ -11,7 +12,7 @@ const cart = (state = initialState.cart, action) => {
 
     case Actions.UPDATE_CART: {
       const { name, quantity, price } = action;
-      // if item already in cart, simply update its quantity...
+      // If item already in cart, update its quantity...
       if (state.some(i => i.name === name)) {
         return state.map(item => {
           if (item.name === name) {
@@ -36,7 +37,7 @@ const cart = (state = initialState.cart, action) => {
 
     default:
       return state;
-  }
-}
+  };
+};
 
 export default cart;

@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux';
-import inventory from './inventory';
+
 import cart from './cart';
 import filter from './filter';
+import inventory from './inventory';
 
 const simpleShopApp = combineReducers({
-  inventory,
   cart,
-  filter
+  filter,
+  inventory
 });
 
 export default simpleShopApp;
