@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import InventoryFilter from '../components/InventoryFilter';
+
 import updateInventoryFilter from '../actions/updateInventoryFilter';
+import InventoryFilter from '../components/InventoryFilter';
 
 const mapStateToProps = (state, ownProps) => ({
   active: ownProps.filter === state.filter

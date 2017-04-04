@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
-import InventoryForm from '../components/InventoryForm';
-import createInventory from '../actions/createInventory';
+
 import addInventory from '../actions/addInventory';
+import createInventory from '../actions/createInventory';
+import InventoryForm from '../components/InventoryForm';
 
 const mapStateToProps = state => {
   return { inventory: state.inventory };

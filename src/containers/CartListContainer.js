@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
-import CartList from '../components/CartList';
+
 import addInventory from '../actions/addInventory';
+import bulkAddInventory from '../actions/bulkAddInventory';
 import deleteCartItem from '../actions/deleteCartItem';
 import emptyCart from '../actions/emptyCart';
-import bulkAddInventory from '../actions/bulkAddInventory';
+import CartList from '../components/CartList';
 
 const mapStateToProps = state => {
   return { cart: state.cart };

@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
-import InventoryList from '../components/InventoryList';
-import Filters from '../constants/filters';
+
 import deleteInventory from '../actions/deleteInventory';
 import updateCart from '../actions/updateCart';
+import InventoryList from '../components/InventoryList';
+import Filters from '../constants/filters';
 
 const getVisibleInventory = (inventory, filter) => {
   switch(filter) {
@@ -13,6 +14,8 @@ const getVisibleInventory = (inventory, filter) => {
       return inventory.filter(i => i.quantity !== 0);
 
     case Filters.SHOW_ALPHA_STOCK: {
+      // Sorts A-Z
+      // Use concat() to create a new instances (sort is in-place)
       return inventory.concat().sort((i1, i2) => {
         const i1Name = i1.name.toLowerCase();
         const i2Name = i2.name.toLowerCase();
@@ -35,7 +38,7 @@ const getVisibleInventory = (inventory, filter) => {
 
     default:
       return inventory;
-  }
+  };
 };
 
 
