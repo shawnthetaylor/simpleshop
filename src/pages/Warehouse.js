@@ -1,4 +1,5 @@
 import React from 'react';
+
 import InventoryFormContainer from '../containers/InventoryFormContainer';
 
 const Warehouse = () => (
