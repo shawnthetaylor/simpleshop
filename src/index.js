@@ -1,8 +1,9 @@
 import React from 'react';
-import Actions from './constants/actions';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { createSession } from 'redux-session';
+
+import Actions from './constants/actions';
 import initialState from './constants/initialState';
 import Root from './components/Root';
 import simpleShopApp from './reducers';
@@ -10,12 +11,13 @@ import simpleShopApp from './reducers';
 const session = createSession({
   ns: 'simpleshop',
   selectState(state) {
+    // no need to store filter settings in session
     return {
       cart: state.cart,
       inventory: state.inventory
     };
   },
-  throttle: 1000,
+  throttle: 1000, // update session every 1 second
   onLoad(storedState, dispatch) {
     dispatch({
       type: Actions.HYDRATE_CART,
@@ -30,7 +32,7 @@ const session = createSession({
 
 const store = createStore(
   simpleShopApp,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), // TODO: DELETE
   applyMiddleware(session)
 );
 
