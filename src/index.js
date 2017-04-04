@@ -32,7 +32,6 @@ const session = createSession({
 
 const store = createStore(
   simpleShopApp,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), // TODO: DELETE
   applyMiddleware(session)
 );
 
