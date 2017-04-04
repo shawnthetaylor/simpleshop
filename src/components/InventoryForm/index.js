@@ -32,8 +32,15 @@ class InventoryForm extends Component {
   }
 
   componentDidMount() {
-    this.name.focus(); // TODO: does this work?
+    this.name.focus();
     this.inputs = [this.name, this.price, this.quantity];
+  }
+
+  componentDidUpdate() {
+    const { current } = this.state;
+    if (current !== -1) {
+      this.inputs[this.state.current].focus();
+    }
   }
 
   onFormSubmit(e) {
