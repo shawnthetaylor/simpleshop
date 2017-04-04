@@ -1,5 +1,5 @@
 export default {
-  inventory: [],
   cart: [],
-  filter: ''
+  filter: '',
+  inventory: []
 }
