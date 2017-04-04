@@ -4,15 +4,15 @@
 }
 
 html, body {
-  background: #eaeaea;
+  background: var(--background-color);
   font-size: 16px;
+  height: 100vh;
   margin: 0;
   padding: 0;
-  height: 100vh;
   width: 100vw;
 }
 
-h1,h2,p {
+h1, h2, p {
   margin: 0;
 }
 
@@ -27,13 +27,13 @@ ul {
 }
 
 .container {
-  padding: 1rem;
   margin: auto;
   max-width: 900px;
   overflow-y: scroll;
+  padding: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: var(--mid-breakpoint)) {
   .container {
     max-width: 100%;
     width: 90vw;
@@ -41,20 +41,20 @@ ul {
 }
 
 .btn {
-  display: flex;
-  background: var(--background-color);
   align-items: center;
+  background: var(--background-color);
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-weight: bold;
   justify-content: center;
   padding: 10px 20px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
   transition: all .2s;
 }
 
 .btn[disabled] {
-  border-color: var(--secondary-font-color);
-  color: var(--secondary-font-color);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 .btn-small {
@@ -71,19 +71,22 @@ ul {
 }
 
 .btn-secondary {
-  border: 3px solid var(--primary-font-color);
-  color: var(--primary-font-color);
+  border: 3px solid var(--primary-color);
+  color: var(--primary-color);
 }
 
 .empty-page {
-  color: var(--secondary-font-color);
+  color: var(--secondary-color);
   text-align: center;
   font-size: 2em;
 }
 
 :root {
-  --background-color: #efefef;
   --accent-color: #ed8151;
-  --primary-font-color: #5a5350;
-  --secondary-font-color: #aca89a;
+  --background-color: #efefef;
+  --primary-color: #5a5350;
+  --secondary-color: #aca89a;
+
+  --mid-breakpoint: 768px;
+  --upper-breakpoint: 992px;
 }
