@@ -8,7 +8,6 @@
 }
 
 .logo {
-  font-family: 'Open-Sans', sans-serif; /* TODO: set globally */
   font-size: var(--xlarge-font);
   font-weight: 600;
   text-align: center;
