@@ -38,8 +38,8 @@ class InventoryForm extends Component {
 
   componentDidUpdate() {
     const { current } = this.state;
-    if (current !== -1) {
-      this.inputs[this.state.current].focus();
+    if (current > -1 && current < 3) {
+      this.inputs[current].focus();
     }
   }
 
@@ -138,6 +138,8 @@ class InventoryForm extends Component {
             </label>
             <input type='text'
                    id='name'
+                   pattern='[a-zA-Z0-9 -]{0,50}'
+                   maxLength='50'
                    className={ cx('form-input') }
                    name='name'
                    ref={ node => { this.name = node; }} />
