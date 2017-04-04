@@ -1,6 +1,6 @@
 .filters {
   color: var(--secondary-color);
-  font-size: .8rem;
+  font-size: var(--small-font);
   text-align: center;
 }
 
@@ -22,7 +22,7 @@
 .filter-header {
   color: var(--secondary-color);
   display: none;
-  font-size: .8rem;
+  font-size: var(--small-font);
   text-align: center;
 }
 .filter-item-header { display: block; }

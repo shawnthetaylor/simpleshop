@@ -20,7 +20,7 @@
 
 .selected {
   color: var(--secondary-color);
-  font-size: .8rem; /* TODO: store as var */
+  font-size: var(--small-font);
   font-weight: bold;
   margin-left: 10px;
 }
@@ -34,6 +34,6 @@
   border: none;
   color: var(--secondary-color);
   cursor: pointer;
-  font-size: 1.5rem; /* TODO: store as var */
+  font-size: var(--large-font);
   transition: color .2s;
 }

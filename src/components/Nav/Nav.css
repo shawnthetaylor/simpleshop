@@ -19,7 +19,7 @@
   border: 3px solid var(--primary-color);
   cursor: pointer;
   display: flex;
-  font-size: 1.5rem;
+  font-size: var(--large-font);
   height: 70px;
   justify-content: center;
   margin: 5px auto;
@@ -61,7 +61,7 @@
   background: var(--background-color);
   color: var(--primary-color);
   composes: box;
-  font-size: 1rem;
+  font-size: var(--normal-font);
   font-weight: 700;
   text-rendering: geometricPrecision;
 }

@@ -34,7 +34,7 @@
   align-items: center;
   border-left: 3px solid var(--secondary-color);
   display: flex;
-  font-size: 1rem;
+  font-size: var(--normal-font);
   font-weight: bold;
   justify-content: center;
   line-height: 19px;
@@ -49,12 +49,12 @@
 }
 
 .price {
-  font-size: 2rem;
+  font-size: var(--xlarge-font);
   margin: 1rem auto;
 }
 
 .unit {
-  font-size: .8rem;
+  font-size: var(--small-font);
   font-weight: bold;
   margin-left: 10px;
   text-transform: uppercase;

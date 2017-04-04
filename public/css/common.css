@@ -38,7 +38,7 @@ ul {
   background: var(--background-color);
   cursor: pointer;
   display: flex;
-  font-size: 1rem;
+  font-size: var(--normal-font);
   font-weight: bold;
   justify-content: center;
   padding: 10px 20px;
@@ -86,4 +86,9 @@ ul {
   --background-color: #efefef;
   --primary-color: #5a5350;
   --secondary-color: #aca89a;
+
+  --small-font: .8rem;
+  --normal-font: 1rem;
+  --large-font: 1.5rem;
+  --xlarge-font: 2rem;
 }
